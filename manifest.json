@@ -1,12 +1,19 @@
 {
   "manifest_version": 3,
-  "name": "Browser Extension",
-  "description": "Browser Extension",
-  "version": "0.1.0",
+  "name": "Extension",
+  "description": "Extension",
+  "version": "1.0.0",
+  "permissions": ["storage"],
+  "action": {
+    "default_popup": "./popup/index.html"
+  },
   "background": {
     "service_worker": "./background.js"
   },
-  "action": {
-    "default_popup": "./popup/index.html"
-  }
+  "content_scripts": [
+    {
+      "matches": ["*://www.youtube.com/*"],
+      "js": ["./scripts/youtube.js"]
+    }
+  ]
 }
